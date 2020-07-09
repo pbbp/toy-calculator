@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@1.1.6
+  heroku: circleci/heroku@0.0.10
 
 jobs:
   build-and-test-job:
@@ -19,9 +20,6 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm build
-            - run:
-                name: Merging back to Master
-                command: git push origin master
 
 workflows:
   build-and-test:
@@ -30,3 +28,7 @@ workflows:
       - package-job:
           requires:
             - build-and-test-job
+
+  heroku_deploy:
+    jobs:
+      - heroku/deploy-via-git
