@@ -20,21 +20,14 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm build
+            - run:
+                name: Merging back to Master
+                command: git push origin master
 
 workflows:
   build-and-test:
     jobs:
       - build-and-test-job
-
-  heroku_deploy:
-    jobs:
-      - build-and-test
-      - package:
+      - deploy:
           requires:
-            - build-and-test
-      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
-          requires:
-            - build-and-test
-          filters:
-            branches:
-              only: master
+            - package
