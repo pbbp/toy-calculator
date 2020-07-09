@@ -26,9 +26,11 @@ jobs:
     executor:
       name: node/default
     steps:
-      - node/with-cache:
-          steps:
-            - run: npm build
+      - node/install:
+          node-version: latest
+      - run:
+          name: "Build Toy Calc App"
+          command: npm build
 
 workflows:
   build-and-test-and-deploy:
