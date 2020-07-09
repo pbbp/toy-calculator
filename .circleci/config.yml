@@ -13,9 +13,9 @@ jobs:
       - checkout
       - node/install:
           node-version: latest
-      - run:
-          name: "Node Version"
-          command: node --version
+      - run: 
+          name: "Installing Dependencies"
+          comand: npm install
       - run: 
           name: "Running Jest with Code Coverage"
           command: npm test
