@@ -2,6 +2,10 @@ import { multiply } from "./multiply";
 
 describe('simple operation', () => {
 
+  test('passing no options', () => {
+    expect(multiply()).toEqual(0);
+  });  
+
   test('follows order of operands', () => {
     expect(multiply([2, 1])).toEqual(2);
     expect(multiply([2, 0])).toEqual(0);

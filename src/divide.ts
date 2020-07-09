@@ -6,4 +6,6 @@ export function divide(divisors : number[]) {
                 return prev / current;
             } );
     }
+
+    return 0;
 }

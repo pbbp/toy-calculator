@@ -1,25 +1,36 @@
 version: 2.1
 orbs:
-  node: circleci/node@1.1.6
+  node: circleci/node@3.0.1
   heroku: circleci/heroku@0.0.10
 
 jobs:
   build-and-test-job:
+    docker:
+      - image: circleci/node:10.0-browsers
     executor:
       name: node/default
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
+      - node/install:
+          node-version: latest
+      - run: 
+          name: "Installing Dependencies"
+          command: npm install
+      - run: 
+          name: "Running Jest with Code Coverage"
+          command: npm test
+      - store_artifacts:
+          path: coverage
+
   package-job:
     executor:
       name: node/default
     steps:
-      - node/with-cache:
-          steps:
-            - run: npm build
+      - node/install:
+          node-version: latest
+      - run:
+          name: "Build Toy Calc App"
+          command: npm build
 
 workflows:
   build-and-test-and-deploy:

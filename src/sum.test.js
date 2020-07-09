@@ -2,6 +2,10 @@ import { sum } from "./sum";
 
 describe('simple operation', () => {
 
+  test('passing no options', () => {
+    expect(sum()).toEqual(0);
+  });  
+
   test('follows order of operands', () => {
     expect(sum([2, 1])).toEqual(3);
     expect(sum([2, 0, 2])).toEqual(4);

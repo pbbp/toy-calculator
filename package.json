@@ -4,9 +4,19 @@
   "description": "",
   "main": "build/index.js",
   "scripts": {
-    "test": "npm run build && jest build/",
+    "test": "npm run build && jest build/ --coverage=true --coverageDirectory=coverage/",
     "build": "tsc",
     "start": "npm run build && node build/index.js"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
   },
   "author": "",
   "license": "ISC",
