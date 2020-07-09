@@ -19,9 +19,9 @@ jobs:
           steps:
             - run: npm build
 workflows:
-    build-and-test:
+    step-1:
       jobs:
         - build-and-test
         - package:
-          - requires:
-            - build-and-test
+            requires:
+                - build-and-test
