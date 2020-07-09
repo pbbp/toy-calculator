@@ -23,3 +23,5 @@ workflows:
       jobs:
         - build-and-test
         - package
+          - requires
+            - build-and-test
