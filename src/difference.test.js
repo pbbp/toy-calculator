@@ -2,6 +2,10 @@ import { difference } from "./difference";
 
 describe('simple operation', () => {
 
+  test('passing no options', () => {
+    expect(difference()).toEqual(0);
+  });  
+
   test('follows order of operands', () => {
     expect(difference([2, 1])).toEqual(1);
     expect(difference([2, 0])).toEqual(2);

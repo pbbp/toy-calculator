@@ -6,4 +6,6 @@ export function multiply(multipliers : number[]) {
                 return prev * current;
             } );
     }
+
+    return 0;
 }

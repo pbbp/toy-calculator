@@ -6,4 +6,6 @@ export function difference(subtractors : number[]) {
                 return prev - current;
             } );
     }
+
+    return 0;
 }
