@@ -18,10 +18,17 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm build
+    
 workflows:
     step-1:
       jobs:
         - build-and-test
         - package:
             requires:
-                - build-and-test
+              - build-and-test
+        - deploy
+            requires:
+              - package
+            filters:
+              branches:
+                only: master
