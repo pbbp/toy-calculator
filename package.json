@@ -4,7 +4,7 @@
   "description": "",
   "main": "build/index.js",
   "scripts": {
-    "test": "npm run build && jest build/",
+    "test": "npm run build && jest build/ --coverage=true --coverageDirectory=coverage/jest ",
     "build": "tsc",
     "start": "npm run build && node build/index.js"
   },
