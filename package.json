@@ -6,7 +6,6 @@
   "scripts": {
     "test": "npm run build && jest build/",
     "build": "tsc",
-    "start:dev": "nodemon",
     "start": "npm run build && node build/index.js"
   },
   "author": "",
