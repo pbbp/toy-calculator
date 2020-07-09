@@ -15,7 +15,7 @@ jobs:
           node-version: latest
       - run: 
           name: "Installing Dependencies"
-          comand: npm install
+          command: npm install
       - run: 
           name: "Running Jest with Code Coverage"
           command: npm test
