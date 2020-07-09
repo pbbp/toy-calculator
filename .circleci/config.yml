@@ -12,7 +12,7 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
-  package:
+  package-job:
     executor:
       name: node/default
     steps:
@@ -27,6 +27,6 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test-job
-      - deploy:
+      - package-job:
           requires:
-            - package
+            - build-and-test-job
