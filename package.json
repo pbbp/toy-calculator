@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "test": "npm run build && jest build/ --coverage=true --coverageDirectory=coverage/",
-    "build": "tsc",
+    "build": "rm -Rf build/ && rm -Rf coverage/ && tsc",
     "start": "npm run build && node build/index.js"
   },
   "jest": {
