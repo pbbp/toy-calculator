@@ -4,6 +4,7 @@ import { sum } from "./sum";
 import { difference } from "./difference";
 import { multiply } from "./multiply";
 import { divide } from "./divide";
+import { exponentiate } from "./exponent";
 
 const express = require("express");
 const bodyParser = require('body-parser');
@@ -54,6 +55,15 @@ app.post('/subtract', (req : any, res : any) => {
 
     res.status(200);
     res.json(differenceOutput);
+});
+
+app.post('/exponentiate', (req : any, res : any) => {
+    const exponentiateOutput = {
+        "result" : exponentiate(req.body.base, req.body.exponent)
+    };
+
+    res.status(200);
+    res.json(exponentiateOutput);
 });
 
 
